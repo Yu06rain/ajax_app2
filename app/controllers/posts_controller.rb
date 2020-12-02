@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(memo: params[:memo])
-    redirect_to action: :index
+    post = Post.create(memo: params[:memo], checked: false)
+    render json:{ post: post }
   end
 
   def checked
